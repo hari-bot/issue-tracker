@@ -36,7 +36,7 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
       //there may not need to do aseprate func bcoz we are not createing issues else where so it is optional
       if (issue) await axios.patch("/api/issues/" + issue.id, data);
       else await axios.post("/api/issues", data);
-      router.push("/issues");
+      router.push("/issues/list");
       router.refresh();
     } catch (error) {
       setIsSubmiting(false);
