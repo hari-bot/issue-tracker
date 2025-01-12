@@ -1,8 +1,9 @@
 import prisma from "@/prisma/client";
 import IssueSummary from "./IssueSummary";
-import LatestIssue from "./LatestIssue";
 import IssueChart from "./IssueChart";
 import { Flex, Grid } from "@radix-ui/themes";
+import { Metadata } from "next";
+import LatestIssue from "./LatestIssue";
 
 export default async function Home() {
   const open = await prisma.issue.count({
@@ -14,6 +15,7 @@ export default async function Home() {
   const closed = await prisma.issue.count({
     where: { status: "CLOSED" },
   });
+
   return (
     <Grid columns={{ initial: "1", md: "2" }} gap="5">
       <Flex direction="column" gap="5">
@@ -24,3 +26,30 @@ export default async function Home() {
     </Grid>
   );
 }
+
+export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Issue Tracker - Dashboard",
+  description: "View a summary of project issues",
+};
+
+// export const metadata: Metadata = {
+//   title: "Issue Tracker - Dashboard",
+//   description: "View a summary of project issue",
+//   // openGraph: {
+//   //   title: "Issue Tracker - Dashboard",
+//   //   description: "View a summary of project issues",
+//   //   url: "https://yourwebsite.com/dashboard", // Replace with your actual URL
+//   //   siteName: "Issue Tracker",
+//   //   images: [
+//   //     {
+//   //       url: "https://yourwebsite.com/images/issue-tracker-dashboard.png", // Replace with your image URL
+//   //       width: 1200,
+//   //       height: 630,
+//   //       alt: "Issue Tracker Dashboard",
+//   //     },
+//   //   ],
+//   //   type: "website",
+//   // },
+// };
