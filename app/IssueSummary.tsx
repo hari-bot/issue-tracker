@@ -5,18 +5,18 @@ import React from "react";
 
 interface Props {
   open: number;
-  inprogress: number;
+  inPogress: number;
   closed: number;
 }
 
-const IssueSummary = ({ open, inprogress, closed }: Props) => {
+const IssueSummary = ({ open, inPogress, closed }: Props) => {
   const containers: {
     label: string;
     value: number;
     status: Status;
   }[] = [
     { label: "Open Issues", value: open, status: "OPEN" },
-    { label: "In-progress Issues", value: inprogress, status: "IN_PROGRESS" },
+    { label: "In-progress Issues", value: inPogress, status: "IN_PROGRESS" },
     { label: "Closed Issues", value: closed, status: "CLOSED" },
   ];
   return (
