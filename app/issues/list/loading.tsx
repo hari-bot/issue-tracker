@@ -10,7 +10,7 @@ const LoadingIssuesPage = () => {
     <div>
       <IssueActions />
       <Table.Root variant="surface">
-        <Table.Header>
+        <Table.Header className="mt-5">
           <Table.Row>
             <Table.ColumnHeaderCell>Issue</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell className="hidden md:table-cell">
